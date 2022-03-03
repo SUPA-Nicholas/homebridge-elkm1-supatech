@@ -117,7 +117,7 @@ export class ElkM1Platform implements DynamicPlatformPlugin {
         });
 
         this.elk.on('error', (err) => {
-          this.log.error(`Error connecting to ElkM1 ${err}. Will retry in ${this.retryDelay / 1000}s`);
+          this.log.error(`Error connecting to ElkM1_Test ${err}. Will retry in ${this.retryDelay / 1000}s`);
           if (this.timeoutActive === false) {
             this.timeoutActive = true;
             setTimeout(() => {
@@ -126,7 +126,7 @@ export class ElkM1Platform implements DynamicPlatformPlugin {
             }, this.retryDelay);
             this.retryDelay = this.retryDelay * 2;
           } else { 
-              this.log.error(`Error connecting to ElkM1 ${err}. reset timeout currently Active awaiting reconnection`);
+              this.log.error(`Error connecting to ElkM1_Test ${err}. reset timeout currently Active awaiting reconnection`);
             }
         });
 

@@ -61,8 +61,8 @@ homebridge-elkm1 exposes a *platform* to homebridge, so you need to add it to th
 ```json
  "platforms": [
         {
-            "platform": "ElkM1",
-            "name": "ElkM1",
+            "platform": "ElkM1_Test",
+            "name": "ElkM1_Test",
             "elkAddress": "x.x.x.x",
             "elkPort": 2101,
             "area": 1,
