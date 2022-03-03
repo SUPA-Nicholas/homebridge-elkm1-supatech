@@ -31,7 +31,7 @@ export class ElkM1Platform implements DynamicPlatformPlugin {
     private zoneAccessories: Record<number, ElkInput> = {};
     private garageDoorAccessories: ElkGarageDoor[] = [];
 
-    private timeoutActive: boolean = false; 
+    private timeoutActive = false;
     private initialRetryDelay = 5000;
     private retryDelay = this.initialRetryDelay;
 
@@ -117,16 +117,16 @@ export class ElkM1Platform implements DynamicPlatformPlugin {
         });
 
         this.elk.on('error', (err) => {
-          this.log.error(`Error connecting to ElkM1_Test ${err}. Will retry in ${this.retryDelay / 1000}s`);
-          if (this.timeoutActive === false) {
-            this.timeoutActive = true;
-            setTimeout(() => {
-              this.connect();
-              this.timeoutActive = false;
-            }, this.retryDelay);
-            this.retryDelay = this.retryDelay * 2;
-          } else { 
-              this.log.error(`Error connecting to ElkM1_Test ${err}. reset timeout currently Active awaiting reconnection`);
+            this.log.error(`Error connecting to ElkM1_Test ${err}. Will retry in ${this.retryDelay / 1000}s`);
+            if (this.timeoutActive === false) {
+                this.timeoutActive = true;
+                setTimeout(() => {
+                    this.connect();
+                    this.timeoutActive = false;
+                }, this.retryDelay);
+                this.retryDelay = this.retryDelay * 2;
+            } else {
+                this.log.error(`Error connecting to ElkM1_Test ${err}. reset timeout currently Active awaiting reconnection`);
             }
         });
 
