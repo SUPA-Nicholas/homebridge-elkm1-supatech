@@ -1,0 +1,183 @@
+{
+	"pluginAlias": "ElkM1",
+	"pluginType": "platform",
+	"singular": false,
+	"schema": {
+		"type": "object",
+		"properties": {
+			"name": {
+				"title": "Name",
+				"type": "string",
+				"required": true
+			},
+			"elkAddress": {
+				"title": "ELK M1 IP Address",
+				"type": "string",
+				"format": "ipv4",
+				"required": true
+			},
+			"elkPort": {
+				"title": "Elk M1 port",
+				"type": "integer",
+				"default": 2101,
+				"required": true
+			},
+			"secure": {
+				"title":"Secure connection",
+				"type": "boolean",
+				"required":true
+			},
+			"area": {
+				"title": "Area",
+				"type": "integer",
+				"default": 1,
+				"minimum": 1,
+				"maximum": 8,
+				"required": true
+			},
+			"keypadCode": {
+				"title": "Keypad code",
+				"type": "integer",
+				"required": true
+			},
+			"zoneTypes": {
+				"type": "array",
+				"required": true,
+				"items": {
+					"title": "Zone",
+					"type": "object",
+					"properties": {
+						"zoneNumber": {
+							"title": "Zone number",
+							"type": "integer",
+							"required": true
+						},
+						"zoneType": {
+							"title": "Zone type",
+							"type": "string",
+							"oneOf": [
+								{
+									"title": "Contact",
+									"enum": [
+										"contact"
+									]
+								},
+								{
+									"title": "Normally closed contact",
+									"enum": [
+										"ncContact"
+									]
+								},
+								{
+									"title": "Normally open contact",
+									"enum": [
+										"noContact"
+									]
+								},
+								{
+									"title": "Garage",
+									"enum": [
+										"garage"
+									]
+								},
+								{
+									"title": "Motion",
+									"enum": [
+										"motion"
+									]
+								},
+								{
+									"title": "Normally closed motion",
+									"enum": [
+										"ncMotion"
+									]
+								},
+								{
+									"title": "Normally open motion",
+									"enum": [
+										"noMotion"
+									]
+								},
+								{
+									"title": "Smoke",
+									"enum": [
+										"smoke"
+									]
+								},
+								{
+									"title": "Normally closed smoke",
+									"enum": [
+										"ncSmoke"
+									]
+								},
+								{
+									"title": "Normally open smoke",
+									"enum": [
+										"noSmoke"
+									]
+								}
+							]
+						}
+					}
+				}
+			},
+			"garageDoors": {
+				"type": "array",
+				"required": false,
+				"items": {
+					"title": "Garage door",
+					"type": "object",
+					"properties": {
+						"name": {
+							"title": "Name",
+							"type": "string",
+							"required": true
+						},
+						"stateZone": {
+							"title": "State zone",
+							"type": "integer",
+							"required": true,
+							"description": "The zone that indicates whether the door is open or closed"
+						},
+						"obstructionZone": {
+							"title": "Obstruction zone",
+							"type": "integer",
+							"required": false,
+							"description": "The zone that indicates if the door is obstructed"
+						},
+						"openOutput": {
+							"title": "Open contact",
+							"type": "integer",
+							"required": true,
+							"description": "The contact (relay) that is pulsed to open the door"
+						},
+						"closeOutput": {
+							"title": "Close contact",
+							"type": "integer",
+							"required": true,
+							"description": "The contact (relay) that is pulsed to close the door"
+						}
+					}
+				}
+			},
+			"includedTasks": {
+				"title": "Included tasks",
+				"type": "array",
+				"items": {
+					"title": "Task number",
+					"type": "integer"
+				}
+			},
+			"includedOutputs": {
+				"title": "Included outputs",
+				"type": "array",
+				"items": {
+					"title": "Output number",
+					"type": "integer"
+				}
+			}
+		}
+	},
+	"form": null,
+	"display": null
+}
