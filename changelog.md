@@ -1,6 +1,11 @@
 Changelog
 =========
 
+3.0.10
+-----
+
+- Delay before reconnect when 'Error retrieving data from M1 panel' happens
+
 3.0.6
 -----
 

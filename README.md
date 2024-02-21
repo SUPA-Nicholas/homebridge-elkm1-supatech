@@ -1,21 +1,19 @@
-# homebridge-elkm1
+# homebridge-elkm1-supatech
 
 All rights belonging to intial repo https://github.com/paulw11/homebridge-elkm1
 Paul Wilkinson
 
 ## Homebridge plugin for the Elk M1 alarm panel
 
-[![verified-by-homebridge](https://badgen.net/badge/homebridge/verified/purple)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
-[![BuyMeACoffee](https://img.shields.io/badge/coffee-donate-orange?logo=buy-me-a-coffee&logoColor=yellow)](https://www.buymeacoffee.com/paulw11)
-[![PayPal](https://img.shields.io/badge/paypal-donate-blue?logo=paypal)](https://paypal.me/paulwilko/)
-[![Downloads](https://img.shields.io/npm/dt/homebridge-elkm1?logo=npm)](https://nodei.co/npm/homebridge-elkm1/)
-[![npm (tag)](https://img.shields.io/npm/v/homebridge-elkm1/latest?logo=npm)](https://www.npmjs.com/package/homebridge-elkm1/v/latest)
+[![PayPal](https://img.shields.io/badge/paypal-donate-blue?logo=paypal)](https://paypal.me/zijiansu96/)
+[![Downloads](https://img.shields.io/npm/dt/homebridge-elkm1-supatech?logo=npm)](https://nodei.co/npm/homebridge-elkm1-supatech/)
+[![npm (tag)](https://img.shields.io/npm/v/homebridge-elkm1-supatech/latest?logo=npm)](https://www.npmjs.com/package/homebridge-elkm1-supatech/v/latest)
 
-*homebridge-elkm1* lets you connect homebridge to an [Elk Products M1 Alarm panel](http://www.elkproducts.com/m1_controls.html) via an [M1XEP Ethernet interface](http://www.elkproducts.com/products/elk-m1xep-m1-ethernet-interface)
+*homebridge-elkm1-supatech* lets you connect homebridge to an [Elk Products M1 Alarm panel](http://www.elkproducts.com/m1_controls.html) via an [M1XEP Ethernet interface](http://www.elkproducts.com/products/elk-m1xep-m1-ethernet-interface)
 
 ## Functionality
 
-* *homebridge-elkm1* exposes the following functionality via HomeKit:
+* *homebridge-elkm1-supatech* exposes the following functionality via HomeKit:
 * Arm/Disarm the alarm (Stay, Night and Away modes)
 * See the status of zones
 * Use zone status in HomeKit automation rules
@@ -27,7 +25,7 @@ Most configuration items are discovered automatically, however you need to indic
 ## Installation
 
 1. Install homebridge - `sudo npm install -g --unsafe-perm homebridge`
-2. Install homebridge-elkm1 - `sudo npm install -g --unsafe-perm homebridge-elkm1`
+2. Install homebridge-elkm1-supatech - `sudo npm install -g --unsafe-perm homebridge-elkm1-supatech`
 3. Update your configuration file.  There is a sample file in this repository.
 
 **Note** Your node.js must be version 6 or later in order for this plugin to work.  If you get a syntax error on startup, you
@@ -56,13 +54,13 @@ to
 ]
 ```
 
-homebridge-elkm1 exposes a *platform* to homebridge, so you need to add it to the `platforms` section of your config.json file.
+homebridge-elkm1-supatech exposes a *platform* to homebridge, so you need to add it to the `platforms` section of your config.json file.
 
 ```json
  "platforms": [
         {
-            "platform": "ElkM1_Test",
-            "name": "ElkM1_Test",
+            "platform": "ElkM1",
+            "name": "ElkM1",
             "elkAddress": "x.x.x.x",
             "elkPort": 2101,
             "area": 1,
@@ -112,7 +110,7 @@ homebridge-elkm1 exposes a *platform* to homebridge, so you need to add it to th
 | elkAddress | IP address or hostname of your Elk M1XEP ethernet interface |
 | elkPort | The insecure port for your M1XEP; 2101 is the default if you haven't changed it |
 | area | The area you want to control; typically 1 |
-| keypadCode | A valid keypad code that homebridge-elkm1 can use to arm & disarm your area |
+| keypadCode | A valid keypad code that homebridge-elkm1-supatech can use to arm & disarm your area |
 | zoneTypes | An array of zone definitions.  Each zone has a `zoneNumber` and a `zoneType`.  Valid types are: *contact*, *motion*, *smoke* or *garage* |
 | garageDoors | An array of garage door objects.  Each garage door has a zone that shows the state of the door (This must be a *garage* zone type), an optional zone that indicates when the door is obstructed (This should be a *contact* zone type) a name, and two outputs; one that is pulsed to open the door and one that is pulsed to close it.  For many openers this will be the same output
 | includedTasks | The task numbers that will be added as HomeKit accessories.
@@ -137,7 +135,7 @@ The following zone types are available:
 
 ## Elk M1 Panel set up
 
-In order for Homebridge-elkm1 to receive zone updates from your panel, you need to ensure that the
+In order for Homebridge-elkm1-supatech to receive zone updates from your panel, you need to ensure that the
 Serial Port 0 Transmit Options are set correctly using ElkRP; You need to enable at least zone and output changes.
 
 ![Serial options screenshot](https://user-images.githubusercontent.com/6835876/112089001-ee322480-8be4-11eb-82a6-daa9146ee68f.png)
